@@ -1,6 +1,6 @@
 <?php
 ob_start();
-define('API_KEY','270127677:AAHjJCk7v_4-9T0gZWxw84WvgR8He2LpNJU');
+define('API_KEY','246279036:AAHSV21yrA_wROhSA5bvx8K7idZXYrhvA6Y');
 $admin = "239607076";
 function bot($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -30,7 +30,7 @@ if (isset($update->edited_message)){
   $eid = $editm->message_id;
   $edname = $editm->from->first_name;
   $jsu = json_decode(file_get_contents(__DIR__.'/users/'.$eid.'.json'));
-  $text = "<b>Mr.".$edname."</b>\n<i>i saw what you said</i>\n<b>You said</b>\n".$jsu;
+  $text = "";
   $id = $update->edited_message->chat->id;
   bot('sendmessage',[
     'chat_id'=>$id,
@@ -43,8 +43,7 @@ if (isset($update->edited_message)){
   //$up = file_get_contents(__DIR__.'/users/'.$eid.'.json');
   //str_replace("edited_message","message",$up);
 }elseif(preg_match('/^\/([Ss]tart)/',$text1)){
-  $edname = $editm->from->first_name;
-  $text = "<b>Hi Mr.</b>".$edname."\n<i>Welcome To</i> <b>Do Not Edit Bot</b>. \nPlease Click To Button <code>Add Me To Group</code>";
+  $text = "سلام دوست\nمن @IcePoker هستم\nبه علت باز شدن مدارس بای مجازی میدم البته\nجمعه ها شاید بیام/nامسال هم امتحان تیزهوشان داریم\nخب دیگه باید برم \nایشالا بعد مدارس میام\nدوستای خوبی داشتم و دارم\nبه هرکی بدی کردم ببخشید\nهرکی هم به من بدی کرد حلالش باشه\nبهترین دوستام \nپرهام\nمجتبی\nبهرام\nعلی\nحافظ\nمهدی بلک\nمهراب\nسینا\nمحمد\nخب دیگه فعلا بای\nمن برم\nتا یادم نرفته اینم بگم که یکی بهم بد جور بدی کرد اونو حلالش نمیکنم\nاگه این متنو بخونه خودش میفهمه";
   bot('sendmessage',[
     'chat_id'=>$chat_id,
     'text'=>$text,
@@ -52,7 +51,7 @@ if (isset($update->edited_message)){
     'reply_markup'=>json_encode([
       'inline_keyboard'=>[
         [
-          ['text'=>'Add Me To Group','url'=>'https://telegram.me/DoNotEditBot?startgroup=new']
+          ['text'=>'Ice Poker','url'=>'https://telegram.me/IcePoker']
         ]
       ]
     ])
